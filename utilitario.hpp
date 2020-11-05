@@ -7,27 +7,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "./fila-aviao.hpp"
-
-/**
- * Gera um relatório do turno em um arquivo de texto
- * 
- * @return void
- */
-void atualizarRelatorioDoTurno(char* texto) {
-    FILE *arquivo;
-
-    arquivo = fopen("relatorio-dos-turnos.txt", "a");
-
-    if(!arquivo) {
-        printf("Falha ao gerar relatorio. Erro na manipulacao do arquivo.");
-        return;
-    }
-
-    fprintf(arquivo, "%s", texto);
-
-    fclose(arquivo);
-}
+#include "fila-aviao.hpp"
 
 /**
  * Lista e descreve cada uma das filas existentes

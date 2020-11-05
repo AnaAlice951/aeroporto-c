@@ -1,6 +1,6 @@
-#include "./fila-aviao.hpp"
-#include "./aeroporto.hpp"
-#include "./utilitario.hpp"
+#include "fila-aviao.hpp"
+#include "aeroporto.hpp"
+#include "utilitario.hpp"
 
 int main() {
 	// Seed do gerador de números aleatórios

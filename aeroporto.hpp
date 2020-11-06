@@ -246,10 +246,8 @@ void aterrisaDecolaAvioes(Fila filas[], int ut) {
             if(filas[i].tipo % 2 == 0 && id_deletado != -1) {
                 numPousados++;
                 somaTempoAterrisagem += ut - aux.criadoEm;
-                //printf("%d\n", aux.criadoEm);
             } else if(id_deletado != -1){
                 numDecolados++;
-               // printf("%d\n", aux.criadoEm);
                 somaTempoDecolagem += ut - aux.criadoEm;
             }
         }

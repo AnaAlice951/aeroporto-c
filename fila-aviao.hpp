@@ -48,7 +48,7 @@ typedef struct Fila {
  * 
  * @return Fila novaFila (fila inicializada)
  */
-Fila criarFila(char tipo, int emOperacao) {
+Fila criarFila(int tipo, int emOperacao) {
     Fila novaFila;
     novaFila.primeiro = NULL;
     novaFila.ultimo = NULL;
@@ -153,12 +153,12 @@ void listar(Fila *fila) {
 }
 
 /**
- * Desenfileira um avião na posição X de uma fila (emergencialmente)
+ * Desenfileira um avião por ID (emergencialmente)
  * 
  * @param Fila *fila (ponteiro para a fila de aviões)
- * @param int x (posição a ser desenfileirada)
+ * @param int id (ID do avião a ser desenfileirado)
  * 
- * @return void
+ * @return bool status
  */
 int desenfileirarPorId(Fila *fila, int id) {
     No *nodo = fila->primeiro;

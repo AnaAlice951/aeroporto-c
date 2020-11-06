@@ -8,20 +8,20 @@ int main() {
 	
 	// Execução dos turnos
 	for(int ut = 0; ut < 10000; ut++) {
-		// Limpar a tela ao início de cada turno (opcional)
-		//system("cls");
+		// Limpa a tela ao início de cada turno 
+		system("cls");
 
-		// Gera novos aviões para as filas com reserva de combustível aleatório
+		// Gera novos aviões para as filas
 		gerarNovosAvioes(novosAvioesPouso, novosAvioesDecolagem, &numAvioesPouso, &numAvioesDecolagem, ut);
 		
 		// Normalizar operações das filas
 		normalizarOperacoes(filas);
 
-		// Enfileira os novos aviões alternadamente nas pistas, buscando mantê-las com o mesmo tamanho
+		// Enfileira os novos aviões nas pistas buscando manter as filas com o mesmo tamanho
 		enfileirarNovosAvioes(novosAvioesPouso, novosAvioesDecolagem, filas, numAvioesPouso, numAvioesDecolagem);
 
-		// Mostrar o conteúdo das filas (opcional)
-		//mostrarFilas(filas);
+		// Mostrar o conteúdo das filas
+		mostrarFilas(filas);
 
 		// Aterrisa e decola os aviões nas filas
 		aterrisaDecolaAvioes(filas, ut);
@@ -29,11 +29,19 @@ int main() {
 		// Decrementa o combustível de todos os aviões no ar
 		decrementarCombustivel(filas);
 
-		// Pausa entre os turnos (opcional)
-		//system("pause");
+		// Estatísticas periódicas
+		if(numPousados)
+			printf("Tempo medio de espera para aterrisagem: %d turnos\n", (somaTempoAterrisagem / numPousados));
+		if(numDecolados)
+			printf("Tempo medio de espera para decolagem: %d turnos\n", (somaTempoDecolagem / numDecolados));
+		printf("Quantidade de avioes que ja pousaram emergencialmente: %d\n\n\n", numPousosEmergencia);
+
+		// Pausa entre os turnos 
+		system("pause");
 	}
 
-	// Estatísticas (fin da execução)
+	// Estatísticas (fim da execução)
+	system("cls");
 	printf("\n\tRESULTADOS DA EXECUCAO\n");
 	printf("Tempo medio de espera para aterrisagem: %d turnos\n", (somaTempoAterrisagem / numPousados));
 	printf("Tempo medio de espera para decolagem: %d turnos\n", (somaTempoDecolagem / numDecolados));

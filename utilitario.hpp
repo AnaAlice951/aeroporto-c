@@ -18,12 +18,12 @@
  */
 void mostrarFilas(Fila filas[]) {
     for(int i = 0; i < 7; i++) {
-        if(filas[i].tipo < 20) {
+        if(i == 0) {
             printf("\n\t\tPISTA 1\n\n");
-        } else if(filas[i].tipo > 30) {
-            printf("\n\t\tPISTA 3\n\n");
-        } else {
+        } else if(i == 3) {
             printf("\n\t\tPISTA 2\n\n");
+        } else if(i == 6){
+            printf("\n\t\tPISTA 3\n\n");
         }
 
         if(filas[i].tipo % 2 == 0) {

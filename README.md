@@ -1,4 +1,4 @@
-# aeroposto-c
+# aeroporto-c
 
 O objetivo deste trabalho é simular os padrões de aterrissagem e decolagem em um
 aeroporto. Suponha um aeroporto que possui três pistas, numeradas como 1, 2 e 3. Existem quatro “prateleiras” de espera para aterrissagem, duas para cada uma das

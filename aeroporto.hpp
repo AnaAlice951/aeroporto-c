@@ -16,35 +16,7 @@ int somaTempoAterrisagem = 0, somaTempoDecolagem = 0;
 
 
 // Vetor de IDs existentes e tamanho do vetor
-int *ids, numIds = 0;
-
-/**
- * Gera os ID's dos aviões
- * 
- * @param int* ids (vetor de IDs existentes)
- * @param int numIds (tamanho do vetor)
- * 
- * @return id (ID gerado e verificado)
- */
-int gerarId(int *ids, int &numIds) {
-    int duplicado = 1;
-    int id = rand() % 100000;
-    numIds++;
-    ids = (int *) realloc(ids, numIds * sizeof(int));
-
-    while(duplicado) {
-        duplicado = 0;
-        for(int i = 0; i < numIds; i++) {
-            if(ids[i] == id) {
-                id = rand() % 100000;
-                duplicado = 1;
-            }
-        }
-    }
-    
-    ids[numIds - 1] = id;
-    return id;
-}
+int id = 0;
 
 // Novos aviões
 Aviao novosAvioesPouso[3]; // Aviões chegando para pouso
@@ -67,16 +39,20 @@ void gerarNovosAvioes(Aviao novosAvioesPouso[], Aviao novosAvioesDecolagem[], in
     *numAvioesDecolagem = rand() % 4;
     
     for(int i = 0; i < *numAvioesPouso; i++) {
-        novoAviao.id = gerarId(ids, numIds);
+        novoAviao.id = id;
+        id++;
         novoAviao.combustivel = rand() % 20;
         novoAviao.criadoEm = ut;
         novosAvioesPouso[i] = novoAviao;
+        ///printf("Novo aviao para entrar nas filas de pouso: ID %d | %d de combustivel\n", novoAviao.id, novoAviao.combustivel);
     }
     for(int i = 0; i < *numAvioesDecolagem; i++) {
-        novoAviao.id = gerarId(ids, numIds);
+        novoAviao.id = id;
+        id++;
         novoAviao.combustivel = 21;
         novoAviao.criadoEm = ut;
         novosAvioesDecolagem[i] = novoAviao;
+        //printf("Novo aviao para entrar nas filas de decolagem: ID %d\n", novoAviao.id, novoAviao.combustivel);
     }
 }
 

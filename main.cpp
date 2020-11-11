@@ -7,9 +7,9 @@ int main() {
 	srand(time(NULL));
 	
 	// Execução dos turnos
-	for(int ut = 0; ut < 10000; ut++) {
+	for(int ut = 0; ut < 100000; ut++) {
 		// Limpa a tela ao início de cada turno 
-		system("cls");
+		//system("cls");
 
 		// Gera novos aviões para as filas
 		gerarNovosAvioes(novosAvioesPouso, novosAvioesDecolagem, &numAvioesPouso, &numAvioesDecolagem, ut);
@@ -21,7 +21,7 @@ int main() {
 		enfileirarNovosAvioes(novosAvioesPouso, novosAvioesDecolagem, filas, numAvioesPouso, numAvioesDecolagem);
 
 		// Mostrar o conteúdo das filas
-		mostrarFilas(filas);
+		//mostrarFilas(filas);
 
 		// Aterrisa e decola os aviões nas filas
 		aterrisaDecolaAvioes(filas, ut);
@@ -30,14 +30,15 @@ int main() {
 		decrementarCombustivel(filas);
 
 		// Estatísticas periódicas
-		if(numPousados)
-			printf("Tempo medio de espera para aterrisagem: %d turnos\n", (somaTempoAterrisagem / numPousados));
-		if(numDecolados)
-			printf("Tempo medio de espera para decolagem: %d turnos\n", (somaTempoDecolagem / numDecolados));
-		printf("Quantidade de avioes que ja pousaram emergencialmente: %d\n\n\n", numPousosEmergencia);
+		// if(numPousados)
+		// 	printf("Tempo medio de espera para aterrisagem: %d turnos\n", (somaTempoAterrisagem / numPousados));
+		// if(numDecolados)
+		// 	printf("Tempo medio de espera para decolagem: %d turnos\n", (somaTempoDecolagem / numDecolados));
+		// printf("Quantidade de avioes que ja pousaram emergencialmente: %d\n\n\n", numPousosEmergencia);
+		// printf("Ja cairam %d\n", numQuedas);
 
 		// Pausa entre os turnos 
-		system("pause");
+		//system("pause");
 	}
 
 	// Estatísticas (fim da execução)
